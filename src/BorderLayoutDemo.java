@@ -22,6 +22,7 @@ public class BorderLayoutDemo {
 
         // Display the frame.
         frame.pack();
+        frame.setSize(300, 400);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }

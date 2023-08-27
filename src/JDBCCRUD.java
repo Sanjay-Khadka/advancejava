@@ -4,7 +4,12 @@ public class JDBCCRUD {
 
     public static void main(String[] args) throws SQLException {
         // Load the JDBC driver
-        Class.forName("com.mysql.jdbc.Driver");
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error loading JDBC driver: " + e.getMessage());
+            System.exit(1);
+        }
 
         // Create a connection to the database
         String url = "jdbc:mysql://localhost:3306/mydb";
@@ -27,7 +32,8 @@ public class JDBCCRUD {
         String selectSQL = "SELECT * FROM users;";
         ResultSet resultSet = statement.executeQuery(selectSQL);
         while (resultSet.next()) {
-            System.out.println(resultSet.getInt("id") + " " + resultSet.getString("name") + " " + resultSet.getString("email"));
+            System.out.println(
+                    resultSet.getInt("id") + " " + resultSet.getString("name") + " " + resultSet.getString("email"));
         }
 
         // Update a record
