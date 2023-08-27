@@ -4,7 +4,7 @@ import javax.swing.*;
 public class FlowLayoutDemo {
 
     public static void main(String[] args) {
-        JFrame flow_frame = new JFrame("FlowLayout Demo");
+        JFrame flow_frame = new JFrame("FlowLayout");
         flow_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Create a FlowLayout with left alignment and 5 unit horizontal and vertical

@@ -10,7 +10,7 @@ public class SumAndDifference {
     private JTextField outputTextField;
 
     public SumAndDifference() {
-        frame = new JFrame("Sum and Difference");
+        frame = new JFrame("Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel mainPanel = new JPanel();

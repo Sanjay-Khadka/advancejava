@@ -5,7 +5,7 @@ public class JDBCCRUD {
     public static void main(String[] args) throws SQLException {
         // Load the JDBC driver
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             System.out.println("Error loading JDBC driver: " + e.getMessage());
             System.exit(1);
@@ -14,14 +14,14 @@ public class JDBCCRUD {
         // Create a connection to the database
         String url = "jdbc:mysql://localhost:3306/mydb";
         String username = "root";
-        String password = "password";
+        String password = "";
         Connection connection = DriverManager.getConnection(url, username, password);
 
         // Create a statement
         Statement statement = connection.createStatement();
 
         // Create a table
-        String createTableSQL = "CREATE TABLE users (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(255), email VARCHAR(255));";
+        String createTableSQL = "CREATE TABLE users (id INT DEFAULT 1 NOT NULL, name VARCHAR(255), email VARCHAR(255));";
         statement.executeUpdate(createTableSQL);
 
         // Insert a record
@@ -42,7 +42,7 @@ public class JDBCCRUD {
 
         // Delete a record
         String deleteSQL = "DELETE FROM users WHERE id = 1;";
-        statement.executeUpdate(deleteSQL);
+//        statement.executeUpdate(deleteSQL);
 
         // Close the connection
         connection.close();
